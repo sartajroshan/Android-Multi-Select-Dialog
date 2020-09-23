@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android-Multi-Select-Dialog.iml" filepath="$PROJECT_DIR$/.idea/modules/Android-Multi-Select-Dialog.iml" group="Android-Multi-Select-Dialog" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android-Multi-Select-Dialog-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android-Multi-Select-Dialog-app.iml" group="Android-Multi-Select-Dialog/app" />
       <module fileurl="file://$PROJECT_DIR$/MultiSelectDIalog.iml" filepath="$PROJECT_DIR$/MultiSelectDIalog.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/com.github.abumoallim-library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/com.github.abumoallim-library.iml" group="Android-Multi-Select-Dialog/library" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>
