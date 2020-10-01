@@ -100,7 +100,7 @@ class MutliSelectAdapter extends RecyclerView.Adapter<MutliSelectAdapter.MultiSe
         textview.setText(str);
     }
 
-    private void removeFromSelection(Integer id) {
+    private void removeFromSelection(String id) {
         for (int i = 0; i < MultiSelectDialog.selectedIdsForCallback.size(); i++) {
             if (id.equals(MultiSelectDialog.selectedIdsForCallback.get(i))) {
                 MultiSelectDialog.selectedIdsForCallback.remove(i);
@@ -109,7 +109,7 @@ class MutliSelectAdapter extends RecyclerView.Adapter<MutliSelectAdapter.MultiSe
     }
 
 
-    private boolean checkForSelection(Integer id) {
+    private boolean checkForSelection(String id) {
         for (int i = 0; i < MultiSelectDialog.selectedIdsForCallback.size(); i++) {
             if (id.equals(MultiSelectDialog.selectedIdsForCallback.get(i))) {
                 return true;

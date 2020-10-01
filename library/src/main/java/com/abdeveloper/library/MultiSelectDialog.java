@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MultiSelectDialog extends AppCompatDialogFragment implements SearchView.OnQueryTextListener, View.OnClickListener {
 
-    public static ArrayList<Integer> selectedIdsForCallback = new ArrayList<>();
+    public static ArrayList<String> selectedIdsForCallback = new ArrayList<>();
 
     public ArrayList<MultiSelectModel> mainListOfAdapter = new ArrayList<>();
     private MutliSelectAdapter mutliSelectAdapter;
@@ -28,10 +28,10 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
     private String positiveText = "DONE";
     private String negativeText = "CANCEL";
     private TextView dialogTitle, dialogSubmit, dialogCancel;
-    private ArrayList<Integer> previouslySelectedIdsList = new ArrayList<>();
+    private ArrayList<String> previouslySelectedIdsList = new ArrayList<>();
 
 
-    private ArrayList<Integer> tempPreviouslySelectedIdsList = new ArrayList<>();
+    private ArrayList<String> tempPreviouslySelectedIdsList = new ArrayList<>();
     private ArrayList<MultiSelectModel> tempMainListOfAdapter = new ArrayList<>();
 
     private SubmitCallbackListener submitCallbackListener;
@@ -101,7 +101,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
         return this;
     }
 
-    public MultiSelectDialog preSelectIDsList(ArrayList<Integer> list) {
+    public MultiSelectDialog preSelectIDsList(ArrayList<String> list) {
         this.previouslySelectedIdsList = list;
         this.tempPreviouslySelectedIdsList = new ArrayList<>(previouslySelectedIdsList);
         return this;
@@ -147,11 +147,11 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
         dialogCancel.setText(negativeText.toUpperCase());
     }
 
-    private ArrayList<MultiSelectModel> setCheckedIDS(ArrayList<MultiSelectModel> multiselectdata, ArrayList<Integer> listOfIdsSelected) {
+    private ArrayList<MultiSelectModel> setCheckedIDS(ArrayList<MultiSelectModel> multiselectdata, ArrayList<String> listOfIdsSelected) {
         for (int i = 0; i < multiselectdata.size(); i++) {
             multiselectdata.get(i).setSelected(false);
             for (int j = 0; j < listOfIdsSelected.size(); j++) {
-                if (listOfIdsSelected.get(j) == (multiselectdata.get(i).getId())) {
+                if (listOfIdsSelected.get(j).equals (multiselectdata.get(i).getId())) {
                     multiselectdata.get(i).setSelected(true);
                 }
             }
@@ -196,7 +196,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
     public void onClick(View view) {
 
         if (view.getId() == R.id.done) {
-            ArrayList<Integer> callBackListOfIds = selectedIdsForCallback;
+            ArrayList<String> callBackListOfIds = selectedIdsForCallback;
 
             if (callBackListOfIds.size() >= minSelectionLimit) {
                 if (callBackListOfIds.size() <= maxSelectionLimit) {
@@ -278,7 +278,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
         return names;
     }
 
-    private boolean checkForSelection(Integer id) {
+    private boolean checkForSelection(String id) {
         for (int i = 0; i < MultiSelectDialog.selectedIdsForCallback.size(); i++) {
             if (id.equals(MultiSelectDialog.selectedIdsForCallback.get(i))) {
                 return true;
@@ -292,7 +292,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
     }*/
 
     public interface SubmitCallbackListener {
-        void onSelected(ArrayList<Integer> selectedIds, ArrayList<String> selectedNames, String commonSeperatedData);
+        void onSelected(ArrayList<String> selectedIds, ArrayList<String> selectedNames, String commonSeperatedData);
         void onCancel();
     }
 
