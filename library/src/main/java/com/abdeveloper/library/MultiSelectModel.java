@@ -1,21 +1,21 @@
 package com.abdeveloper.library;
 
 public class MultiSelectModel {
-    private Integer id;
+    private String id;
     private String name;
     private Boolean isSelected;
 
-    public MultiSelectModel(Integer id, String name) {
+    public MultiSelectModel(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
